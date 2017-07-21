@@ -1,6 +1,6 @@
-
 var express = require('express');
-var router = express.Router();
+var moment  = require('moment');
+var router  = express.Router();
 
 
 /* GET home page. */
@@ -11,7 +11,14 @@ router.get('/', function(req, res, next){
 router.get('/:query', function(req, res, next){
   if(req.params.query){
     var query = req.params.query;
-    res.send(query);
+    var day = moment.unix(query);
+    //res.send( day );
+
+    var naturalTime = query;
+
+    var unixTime =   moment(naturalTime).format('X');
+
+    res.send({"unix": unixTime, "natural": naturalTime})
   }
 })
 
