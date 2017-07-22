@@ -64,7 +64,7 @@ function year(num){
   if(num >= 100)
     return "20" + numStr.substring(1,end);
   else if(num < 100 && num > 0)
-    return "19" + string(num);
+    return "19" + String(num);
 }
 
 function getDate(string){
